@@ -1,0 +1,5 @@
+# .gitignoreファイルに追加
+*.pyc
+**/__pycache__
+
+db.sqlite3
