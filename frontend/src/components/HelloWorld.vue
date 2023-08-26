@@ -1,15 +1,31 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import axios from "axios";
+
 defineProps({
   msg: {
     type: String,
     required: true
   }
 })
+const test = ref('Fail');
+const apiURL = 'http://localhost:8000';
+
+onMounted(() => {
+  axios.get(apiURL + '/api/v1/sample/')
+  .then((res) => {
+    test.value = res.data;
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+});
 </script>
 
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
+    <div>{{ test }}</div>
     <h3>
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
