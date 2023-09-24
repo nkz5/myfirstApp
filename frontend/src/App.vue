@@ -1,6 +1,6 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { useRouter } from 'vue-router';
+
 </script>
 
 <template>
@@ -8,13 +8,10 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="NKZ5!" />
     </div>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <main><router-view /></main>
 </template>
 
 <style scoped>
